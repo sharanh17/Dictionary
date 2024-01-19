@@ -28,21 +28,23 @@ const XDictionary = () => {
 
   return (
     <div>
-      <h1>Dictionary App</h1>
-      <div>
-        <label>
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search for a word..."
-          />
-        </label>
-        <button onClick={handleSearch}>Search</button>
-      </div>
-      Definition:{searchResult && <p>{searchResult}</p>}
+    <h1>Dictionary App</h1>
+    <div>
+      <label>
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search for a word..."
+        />
+      </label>
+      <button onClick={handleSearch}>Search</button>
     </div>
-  );
+    {/* Ensure "Definition:" is always visible */}
+    {searchResult !== "" && <p>Definition:</p>}
+    {searchResult && <p>{searchResult}</p>}
+  </div>
+);
 };
 
 export default XDictionary;
